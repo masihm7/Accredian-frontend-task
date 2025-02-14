@@ -17,7 +17,7 @@ const ReferralForm = ({ onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!Data.userName || (!Data.Mobileno) || (!Data.YourEmail) || !Data.refereeName || !Data.refereeEmail ){
+    if (!Data.userName || !/^\d{10}$/.test(Data.Mobileno) || (!Data.YourEmail) || !Data.refereeName || !Data.refereeEmail ){
       alert("Fill the form correctly")
     }
     try {
@@ -62,7 +62,7 @@ const ReferralForm = ({ onClose }) => {
             required
           />
           <input
-            type="text"
+            type="email"
             name="YourEmail"
             value={Data.YourEmail}
             onChange={handleChange}
@@ -80,7 +80,7 @@ const ReferralForm = ({ onClose }) => {
             required
           />
           <input
-            type="text"
+            type="email"
             name="refereeEmail"
             value={Data.refereeEmail}
             onChange={handleChange}
